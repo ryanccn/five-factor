@@ -1,7 +1,11 @@
 {
+	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "five-factor",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2025-04-16",
+	"workers_dev": false,
+	"preview_urls": false,
+	"send_metrics": false,
 	"assets": {
 		"directory": ".svelte-kit/cloudflare",
 		"binding": "ASSETS",
