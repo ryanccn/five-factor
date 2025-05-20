@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+
+@import '@fontsource/ibm-plex-mono/latin.css';
+@import '@fontsource/ibm-plex-mono/latin-italic.css';
+
+:root {
+	--c-foreground: oklch(14.5% 0 0);
+	--c-foreground-2: oklch(34.5% 0 0);
+	--c-foreground-3: oklch(54.5% 0 0);
+	--c-background: oklch(100% 0 0);
+	--c-background-2: oklch(95% 0 0);
+	--c-background-3: oklch(90% 0 0);
+	--c-primary: oklch(66.7% 0.295 322.15);
+	--c-primary-2: oklch(76.7% 0.295 322.15);
+
+	--c-extra-0: oklch(63.7% 0.237 25.331);
+	--c-extra-1: oklch(70.5% 0.213 47.604);
+	--c-extra-2: oklch(85.2% 0.199 91.936);
+	--c-extra-3: oklch(62.3% 0.214 259.815);
+	--c-extra-4: oklch(72.3% 0.219 149.579);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--c-foreground: oklch(98.5% 0 0);
+		--c-foreground-2: oklch(78.5% 0 0);
+		--c-foreground-3: oklch(58.5% 0 0);
+		--c-background: oklch(20.5% 0 0);
+		--c-background-2: oklch(25.5% 0 0);
+		--c-background-3: oklch(30.5% 0 0);
+		--c-primary: oklch(74% 0.238 322.16);
+		--c-primary-2: oklch(64% 0.238 322.16);
+
+		--c-extra-0: oklch(70.4% 0.191 22.216);
+		--c-extra-1: oklch(75% 0.183 55.934);
+		--c-extra-2: oklch(90.5% 0.182 98.111);
+		--c-extra-3: oklch(70.7% 0.165 254.624);
+		--c-extra-4: oklch(79.2% 0.209 151.711);
+	}
+}
+
+@theme {
+	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	--color-*: initial;
+	--color-foreground: var(--c-foreground);
+	--color-foreground-2: var(--c-foreground-2);
+	--color-foreground-3: var(--c-foreground-3);
+	--color-background: var(--c-background);
+	--color-background-2: var(--c-background-2);
+	--color-background-3: var(--c-background-3);
+	--color-primary: var(--c-primary);
+	--color-primary-2: var(--c-primary-2);
+	--color-extra-0: var(--c-extra-0);
+	--color-extra-1: var(--c-extra-1);
+	--color-extra-2: var(--c-extra-2);
+	--color-extra-3: var(--c-extra-3);
+	--color-extra-4: var(--c-extra-4);
+}
+
+@layer base {
+	html {
+		color-scheme: dark light;
+	}
+
+	body {
+		font-family: var(--font-mono);
+		color: var(--color-foreground);
+		background-color: var(--color-background);
+	}
+
+	::selection {
+		color: var(--color-background);
+		background-color: var(--color-primary);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+:root::view-transition-old(root) {
+	animation: 0.15s ease-out both fade-out;
+}
+
+:root::view-transition-new(root) {
+	animation: 0.15s ease-in 0.15s both fade-in;
+}
+
+@keyframes ltr {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: 100%;
+	}
+}

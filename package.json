@@ -1,0 +1,52 @@
+{
+	"name": "@ryanccn/five-factor",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "eslint . && prettier --check .",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@fontsource/ibm-plex-mono": "^5.2.5",
+		"valibot": "^1.1.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.27.0",
+		"@ryanccn/eslint-config": "^0.5.0",
+		"@sveltejs/adapter-cloudflare": "^7.0.3",
+		"@sveltejs/kit": "^2.21.1",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@tailwindcss/vite": "^4.1.7",
+		"eslint": "^9.27.0",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-plugin-svelte": "^3.8.2",
+		"eslint-plugin-unicorn": "^59.0.1",
+		"globals": "^16.1.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.4.0",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"svelte": "^5.31.1",
+		"svelte-check": "^4.2.1",
+		"svelte-eslint-parser": "^1.2.0",
+		"tailwindcss": "^4.1.7",
+		"typescript": "^5.0.0",
+		"typescript-eslint": "^8.32.1",
+		"vite": "^6.3.5"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@tailwindcss/oxide",
+			"esbuild",
+			"sharp",
+			"workerd"
+		]
+	},
+	"packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
+}
