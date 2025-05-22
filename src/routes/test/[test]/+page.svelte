@@ -2,8 +2,9 @@
 	import { goto } from '$app/navigation';
 	import type { PageProps } from './$types';
 
-	import type { Marker, Factor } from '$lib/data';
+	import { encode } from '$lib/codec';
 	import { shuffle } from '$lib/utils';
+	import type { Marker, Factor } from '$lib/data';
 
 	let { data }: PageProps = $props();
 
@@ -31,7 +32,7 @@
 		shuffledMarkers.pop();
 
 		if (shuffledMarkers.length === 0) {
-			void goto(`/report#${btoa(JSON.stringify(scores))}`);
+			void goto(`/report#${encode(scores)}`);
 		}
 	};
 </script>

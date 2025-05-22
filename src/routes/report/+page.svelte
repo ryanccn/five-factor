@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
+
+	import { decode } from '$lib/codec';
 	import { factorDescriptions, factorLabels, factors, norms } from '$lib/data';
 	import { percentile } from '$lib/utils';
 
@@ -13,12 +15,20 @@
 	const scoresValidate = vbObject(vbEntriesFromList(factors, vbNumber()));
 
 	const scores = $derived.by(() => {
+		if (!page.url.hash) return;
+		const hash = page.url.hash.replace(/^#/, '');
+
 		try {
-			if (!page.url.hash) return;
-			return vbParse(scoresValidate, JSON.parse(atob(page.url.hash.replace(/^#/, ''))));
+			return decode(hash);
 		} catch (error) {
 			console.error(error);
-			return false;
+
+			try {
+				return vbParse(scoresValidate, JSON.parse(atob(hash)));
+			} catch (error) {
+				console.error(error);
+				return false;
+			}
 		}
 	});
 </script>
