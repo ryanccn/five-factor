@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 
 	import { decode } from '$lib/codec';
@@ -94,8 +95,8 @@
 		any data to servers. <span class="text-primary break-all select-all">{page.url}</span>
 	</p>
 
-	<a class="text-primary underline-offset-4 hover:underline" href="/">← Home</a>
+	<a class="text-primary underline-offset-4 hover:underline" href={resolve('/')}>← Home</a>
 {:else if scores === false}
 	<span>Invalid data provided in URL!</span>
-	<a class="text-primary underline-offset-4 hover:underline" href="/">← Home</a>
+	<a class="text-primary underline-offset-4 hover:underline" href={resolve('/')}>← Home</a>
 {/if}

@@ -1,3 +1,7 @@
+<script>
+	import { resolve } from '$app/paths';
+</script>
+
 <svelte:head>
 	<title>Big-Five Factor Markers</title>
 </svelte:head>
@@ -21,11 +25,15 @@
 
 <div class="my-8 flex flex-row flex-wrap gap-6">
 	<div class="flex flex-col items-start gap-y-2">
-		<a href="/test/50" class="bg-primary text-background hover:bg-primary-2 px-4 py-2">Start</a>
+		<a href={resolve('/test/50')} class="bg-primary text-background hover:bg-primary-2 px-4 py-2"
+			>Start</a
+		>
 		<span class="text-primary-2 text-xs">50 questions</span>
 	</div>
 	<div class="flex flex-col items-start gap-y-2">
-		<a href="/test/100" class="bg-background-2 hover:bg-background-3 px-4 py-2">Start extended</a>
+		<a href={resolve('/test/100')} class="bg-background-2 hover:bg-background-3 px-4 py-2"
+			>Start extended</a
+		>
 		<span class="text-foreground-2 text-xs">100 questions, more accurate</span>
 	</div>
 </div>

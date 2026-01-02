@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import type { PageProps } from './$types';
 
 	import Choice from './Choice.svelte';
@@ -60,7 +61,8 @@
 		shuffledMarkers.pop();
 
 		if (shuffledMarkers.length === 0) {
-			void goto(`/report#${encode(scores)}`);
+			// eslint-disable-next-line svelte/no-navigation-without-resolve
+			void goto(`${resolve('/report')}#${encode(scores)}`);
 		}
 	};
 </script>

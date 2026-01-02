@@ -24,7 +24,7 @@
 	<span
 		class={[
 			'text-foreground-3 group-hover:text-background group-active:text-background absolute top-0 left-0 m-1.5 text-[10px]',
-			forceActive ? '!text-background' : null,
+			forceActive ? 'text-background!' : null,
 		]}>{shortcut}</span
 	>
 </button>
